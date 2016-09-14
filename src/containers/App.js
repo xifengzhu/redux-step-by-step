@@ -4,13 +4,15 @@ import { connect } from 'react-redux'
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import MainSection from "../components/MainSection"
+import * as TodoActions from '../actions'
+
 
 class App extends Component {
   render() {
-    const { todos } = this.props
+    const { todos, actions } = this.props
     return (
       <div>
-        <Header />
+        <Header addTodo={actions.addTodo} />
         <MainSection todos={todos} />
         <Footer />
       </div>
@@ -20,6 +22,7 @@ class App extends Component {
 
 App.propTypes = {
   todos: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
 }
 
 function mapStateToProps(state) {
@@ -28,6 +31,13 @@ function mapStateToProps(state) {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(TodoActions, dispatch)
+  }
+}
+
 export default connect(
   mapStateToProps,
+  mapDispatchToProps
 )(App)
