@@ -61,3 +61,10 @@ cd ${project_name}
 
 #### Run Project
 `npm start`
+
+#### Dividing components
+1. header
+  a. TodoInput
+2. mainSection
+  a. TodoList -> todoItem
+3. footer
