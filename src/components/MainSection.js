@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react'
+import TodoItem from './TodoItem'
+
 
 class MainSection extends Component {
   render() {
@@ -6,7 +8,7 @@ class MainSection extends Component {
     return (
       <ul className="todo-list">
         {todos.map(todo =>
-          <li key={todo.id}>{todo.text}</li>
+          <TodoItem key={todo.id} todo={todo} {...actions} />
         )}
       </ul>
     );
@@ -15,7 +17,7 @@ class MainSection extends Component {
 
 MainSection.propTypes = {
   todos: PropTypes.array.isRequired,
-  // actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired
 }
 
 export default MainSection

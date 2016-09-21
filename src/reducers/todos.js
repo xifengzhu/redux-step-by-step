@@ -1,4 +1,4 @@
-import { ADD_TODO } from '../constants/ActionTypes'
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODO} from '../constants/ActionTypes'
 
 const initialState = [
   {
@@ -19,6 +19,16 @@ export default function todos(state = initialState, action) {
         },
         ...state
       ]
+    case TOGGLE_TODO:
+      return state.map( todo =>
+        todo.id == action.id ?  Object.assign({}, todo, {completed: !todo.completed}) : todo
+      )
+
+    case DELETE_TODO:
+      return state.filter( todo =>
+        todo.id !== action.id
+      )
+
     default:
       return state
   }

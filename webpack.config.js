@@ -26,7 +26,7 @@ module.exports = {
       },
       {
         test: /\.css?$/,
-        loaders: [ 'style', 'raw' ],
+        loader: 'style!css', // Run both loaders
         include: __dirname
       }
     ]
