@@ -11,10 +11,11 @@ class TodoItem extends Component {
       <li
         className={classnames({
           completed: todo.completed,
+          todoitem: true
         })}
         onClick={()=> toggleTodo(todo.id )}>
         {todo.text}
-        <button className="btn" onClick={() => deleteTodo(todo.id)}>destroy</button>
+        <button onClick={() => deleteTodo(todo.id)}>destroy</button>
       </li>
     );
   }

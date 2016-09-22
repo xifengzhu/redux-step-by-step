@@ -23,7 +23,7 @@ class TodoTextInput extends Component {
 
   render() {
     return (
-      <div>
+      <div className="todo-input">
         <input type="text"
           placeholder="input todo title"
           value={this.state.text}

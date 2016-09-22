@@ -12,4 +12,8 @@ export function deleteTodo(id){
   return {type: types.DELETE_TODO, id}
 }
 
+export function completeAll(id){
+  return {type: types.COMPLETE_ALL, id}
+}
+
 
